@@ -3,11 +3,20 @@ import { Link } from 'react-router-dom';
 import oc from 'open-color';
 import { shadow } from '../../lib/styleUtil';
 
-const Login = () => {
-  return <Positioner>Login</Positioner>;
+const AuthWrapper = ({ children }) => {
+  return (
+    <Positioner>
+      <ShadowedBox>
+        <LogoWrapper>
+          <Logo to='/'>HYPER CLOUD</Logo>
+        </LogoWrapper>
+        <Contents>{children}</Contents>
+      </ShadowedBox>
+    </Positioner>
+  );
 };
 
-export default Login;
+export default AuthWrapper;
 
 const Positioner = styled.div`
   position: absolute;
