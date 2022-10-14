@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import oc from 'open-color';
 import { Link } from 'react-router-dom';
-import { shadow } from '../../lib/StyleUtil';
+import { shadow } from '../../../lib/StyleUtil';
 
 const LoginButton = () => <BorderedButton to='/login'>로그인 / 가입</BorderedButton>;
 

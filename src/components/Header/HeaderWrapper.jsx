@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import oc from 'open-color';
 import { shadow, media } from '../../lib/StyleUtil';
 
-const Header = ({ children }) => {
+const HeaderWrapper = ({ children }) => {
   return (
     <Positioner>
       <WhiteBackground>
@@ -17,7 +17,7 @@ const Header = ({ children }) => {
   );
 };
 
-export default Header;
+export default HeaderWrapper;
 
 const Positioner = styled.div`
   display: flex;
