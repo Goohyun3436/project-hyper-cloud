@@ -40,7 +40,6 @@ const auth = (state = initialState, action) => {
 
     case SET_ERROR: {
       const { form, message } = action;
-      console.log('hi');
       return state.setIn([form, 'error'], message);
     }
 

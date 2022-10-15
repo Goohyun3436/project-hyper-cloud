@@ -1,12 +1,13 @@
 import styled from 'styled-components';
+import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { isEmail, isLength, isAlphanumeric } from 'validator';
 import AuthWrapper from '../../components/Auth/AuthWrapper';
 import AuthContent from '../../components/Auth/AuthContent';
 import InputWithLable from '../../components/Auth/InputWithLable';
 import AuthButton from '../../components/Auth/AuthButton';
 import BottomLink from '../../components/Auth/BottomLink';
-import { useSelector, useDispatch } from 'react-redux';
-import { useEffect } from 'react';
-import { isEmail, isLength, isAlphanumeric } from 'validator';
+import AuthError from '../../components/Auth/AuthError';
 
 const Signup = () => {
   const { email, userid, password, passwordConfirm } = useSelector(
@@ -97,6 +98,7 @@ const Signup = () => {
           value={passwordConfirm}
           onChange={handleChange}
         />
+        {error && <AuthError>{error}</AuthError>}
         <AuthButton>회원가입</AuthButton>
         <BottomLink to='/auth/login'>로그인</BottomLink>
       </AuthContent>
