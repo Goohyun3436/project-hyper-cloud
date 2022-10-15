@@ -8,18 +8,18 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 
 const Login = () => {
-  const { email, password } = useSelector(state => state.authPushValue.toJS().login.form);
+  const { email, password } = useSelector(state => state.auth.toJS().login.form);
 
   const dispatch = useDispatch();
 
   const handleChange = e => {
     const { name, value } = e.target;
-    dispatch({ type: 'authPushValue/CHANGE_INPUT', name, value, form: 'login' });
+    dispatch({ type: 'auth/CHANGE_INPUT', name, value, form: 'login' });
   };
 
   useEffect(() => {
     return () => {
-      dispatch({ type: 'authPushValue/INITIALIZE_FORM', form: 'login' });
+      dispatch({ type: 'auth/INITIALIZE_FORM', form: 'login' });
     };
   }, []);
 
