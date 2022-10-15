@@ -26,6 +26,7 @@ const Signup = () => {
         setError('잘못된 이메일 형식 입니다.');
         return false;
       }
+      setError(null);
       return true;
     },
     userid: value => {
@@ -33,6 +34,7 @@ const Signup = () => {
         setError('아이디는 4 ~ 15 글자의 알파벳 혹은 숫자로 이뤄져야 합니다.');
         return false;
       }
+      setError(null);
       return true;
     },
     password: value => {
@@ -40,6 +42,7 @@ const Signup = () => {
         setError('비밀번호를 6자 이상 입력하세요.');
         return false;
       }
+      setError(null);
       return true;
     },
     passwordConfirm: value => {
