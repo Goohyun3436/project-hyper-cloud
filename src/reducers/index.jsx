@@ -1,5 +1,8 @@
-// import { combineReducers } from 'redux';
+import { combineReducers } from 'redux';
+import authPushValue from './\bauthPushValue';
 
-// const rootReducer = combineReducers({});
+const rootReducer = combineReducers({
+  authPushValue,
+});
 
-// export default rootReducer;
+export default rootReducer;
