@@ -5,6 +5,12 @@
       "password": "$2a$10$UeuPRsdB3IlN/4vGhS6JsOSdGTwoKZLgVu7uqvQBsa0W1ys8Eq/6G",
       "userid": "sdfsdfsdf",
       "id": 1
+    },
+    {
+      "email": "rngus3436@naver.com",
+      "password": "$2a$10$KSnlIvXJDGQ5MSzGBZoA7OJsH/lkBen.IsP3hJAN2Kuk9LcRSouGC",
+      "userid": "3436rngus",
+      "id": 2
     }
   ]
 }

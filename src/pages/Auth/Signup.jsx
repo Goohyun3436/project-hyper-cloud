@@ -73,8 +73,6 @@ const Signup = () => {
     e.preventDefault();
     try {
       const { data } = await localSignup({ email, userid, password });
-      localStorage.setItem('login-token', data.accessToken);
-      localStorage.setItem('user', data.user);
       setIsModal(true);
     } catch (error) {
       setError(error.response.data);

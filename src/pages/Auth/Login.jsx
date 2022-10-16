@@ -1,20 +1,40 @@
 import styled from 'styled-components';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { localLogin } from '../../lib/api/auth';
 import AuthWrapper from '../../components/Auth/AuthWrapper';
 import AuthContent from '../../components/Auth/AuthContent';
 import InputWithLable from '../../components/Auth/InputWithLable';
 import AuthButton from '../../components/Auth/AuthButton';
 import BottomLink from '../../components/Auth/BottomLink';
-import { useSelector, useDispatch } from 'react-redux';
-import { useEffect } from 'react';
+import AuthError from '../../components/Auth/AuthError';
 
 const Login = () => {
+  const navigate = useNavigate();
   const { email, password } = useSelector(state => state.auth.toJS().login.form);
-
+  const error = useSelector(state => state.auth.toJS().login.error);
   const dispatch = useDispatch();
+
+  const setError = message => {
+    dispatch({ type: 'auth/SET_ERROR', form: 'login', message });
+  };
 
   const handleChange = e => {
     const { name, value } = e.target;
     dispatch({ type: 'auth/CHANGE_INPUT', name, value, form: 'login' });
+  };
+
+  const onSubmit = async e => {
+    e.preventDefault();
+    try {
+      const { data } = await localLogin({ email, password });
+      localStorage.setItem('login-token', data.accessToken);
+      localStorage.setItem('user', data.user);
+      navigate('/');
+    } catch (error) {
+      setError(error.response.data);
+    }
   };
 
   useEffect(() => {
@@ -40,7 +60,8 @@ const Login = () => {
           value={password}
           onChange={handleChange}
         />
-        <AuthButton>로그인</AuthButton>
+        {error && <AuthError>{error}</AuthError>}
+        <AuthButton onClick={onSubmit}>로그인</AuthButton>
         <BottomLink to='/auth/signup'>회원가입</BottomLink>
       </AuthContent>
     </AuthWrapper>
