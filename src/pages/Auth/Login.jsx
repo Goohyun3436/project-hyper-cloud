@@ -31,8 +31,11 @@ const Login = () => {
     e.preventDefault();
     try {
       const { data } = await localLogin({ email, password });
-      localStorage.setItem('login-token', data.accessToken);
-      localStorage.setItem('user', data.user);
+      dispatch({ type: 'header/PUT_IN_TOKEN', token: data.accessToken });
+      dispatch({
+        type: 'header/PUT_IN_USERINFO',
+        userInfo: { email: data.user.email, userid: data.user.userid },
+      });
       navigate('/');
     } catch (error) {
       setError(error.response.data);

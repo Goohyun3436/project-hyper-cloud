@@ -11,6 +11,18 @@
       "password": "$2a$10$KSnlIvXJDGQ5MSzGBZoA7OJsH/lkBen.IsP3hJAN2Kuk9LcRSouGC",
       "userid": "3436rngus",
       "id": 2
+    },
+    {
+      "email": "3436rngus@naver.com",
+      "password": "$2a$10$UZKrc/Hn8oF.eQ9PPSaOrOAwTeiGk3B.jT7TrISIwsxy5Sfr7Cwoa",
+      "userid": "3436rngus",
+      "id": 3
+    },
+    {
+      "email": "3436rngus@naver.comm",
+      "password": "$2a$10$89b9TJrVIw7Cz9l22k2YEuH1IzdZiDfXN.NRqMhL9nj87Ga2.//XG",
+      "userid": "3436rngus",
+      "id": 4
     }
   ]
 }

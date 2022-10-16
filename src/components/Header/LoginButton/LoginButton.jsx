@@ -3,7 +3,11 @@ import oc from 'open-color';
 import { Link } from 'react-router-dom';
 import { shadow } from '../../../lib/StyleUtil';
 
-const LoginButton = () => <BorderedButton to='/auth/login'>로그인 / 가입</BorderedButton>;
+const LoginButton = ({ type, onClick }) => (
+  <BorderedButton to='/auth/login' onClick={onClick}>
+    {type}
+  </BorderedButton>
+);
 
 export default LoginButton;
 

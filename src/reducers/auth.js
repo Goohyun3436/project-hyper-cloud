@@ -1,5 +1,4 @@
 import { Map } from 'immutable';
-import * as AuthAPI from '../lib/api/auth';
 
 const CHANGE_INPUT = 'auth/CHANGE_INPUT';
 const INITIALIZE_FORM = 'auth/INITIALIZE_FORM';

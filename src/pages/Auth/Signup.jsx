@@ -12,6 +12,7 @@ import {
   BottomLink,
   AuthError,
 } from '../../components/Auth';
+import Modal from '../../components/Modal/Modal';
 
 const Signup = () => {
   const navigate = useNavigate();
