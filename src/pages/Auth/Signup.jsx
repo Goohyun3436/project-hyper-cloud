@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { isEmail, isLength, isAlphanumeric } from 'validator';
+import { localSignup } from '../../lib/api/auth';
 import AuthWrapper from '../../components/Auth/AuthWrapper';
 import AuthContent from '../../components/Auth/AuthContent';
 import InputWithLable from '../../components/Auth/InputWithLable';
@@ -15,10 +16,6 @@ const Signup = () => {
   );
   const error = useSelector(state => state.auth.toJS().signup.error);
   const dispatch = useDispatch();
-
-  const setError = message => {
-    dispatch({ type: 'auth/SET_ERROR', form: 'signup', message });
-  };
 
   const validate = {
     email: value => {
@@ -55,12 +52,31 @@ const Signup = () => {
     },
   };
 
+  const setError = message => {
+    dispatch({ type: 'auth/SET_ERROR', form: 'signup', message });
+  };
+
   const handleChange = e => {
     const { name, value } = e.target;
     dispatch({ type: 'auth/CHANGE_INPUT', name, value, form: 'signup' });
 
     const validation = validate[name](value);
     if (name.indexOf('password') > -1 || !validation) return;
+  };
+
+  const onSubmit = async () => {
+    try {
+      const { data } = await localSignup({ email, userid, password });
+      localStorage.setItem('login-token', data.accessToken);
+      localStorage.setItem('user', data.user);
+    } catch (error) {
+      switch (error.response.data) {
+        case 'Email already exists':
+          console.log('이미 존재하는 이메일 입니다.');
+        default:
+          console.log(error.response);
+      }
+    }
   };
 
   useEffect(() => {
@@ -102,7 +118,7 @@ const Signup = () => {
           onChange={handleChange}
         />
         {error && <AuthError>{error}</AuthError>}
-        <AuthButton>회원가입</AuthButton>
+        <AuthButton onClick={onSubmit}>회원가입</AuthButton>
         <BottomLink to='/auth/login'>로그인</BottomLink>
       </AuthContent>
     </AuthWrapper>
