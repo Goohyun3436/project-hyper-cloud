@@ -132,7 +132,11 @@ const Signup = () => {
         <Modal
           navigate={goToLogin}
           setIsModal={setIsModal}
-          alertMessage={['회원가입 완료', '회원가입이 완료되었습니다.', '로그인하러 가기']}
+          alertMessage={{
+            title: '회원가입 완료',
+            message: '회원가입이 완료되었습니다.',
+            button: '로그인하러 가기',
+          }}
         />
       )}
     </>

@@ -4,10 +4,10 @@ const Modal = ({ navigate, setIsModal, alertMessage }) => {
   return (
     <Background>
       <Wrapper>
-        <Title>{alertMessage[0]}</Title>
-        <Message>{alertMessage[1]}</Message>
+        <Title>{alertMessage.title}</Title>
+        <Message>{alertMessage.message}</Message>
         <CloseButton onClick={() => setIsModal(false)}>x</CloseButton>
-        <SubmitButton onClick={navigate}>{alertMessage[2]}</SubmitButton>
+        <SubmitButton onClick={navigate}>{alertMessage.button}</SubmitButton>
       </Wrapper>
     </Background>
   );
