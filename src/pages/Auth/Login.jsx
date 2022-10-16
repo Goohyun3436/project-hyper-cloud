@@ -3,12 +3,14 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { localLogin } from '../../lib/api/auth';
-import AuthWrapper from '../../components/Auth/AuthWrapper';
-import AuthContent from '../../components/Auth/AuthContent';
-import InputWithLable from '../../components/Auth/InputWithLable';
-import AuthButton from '../../components/Auth/AuthButton';
-import BottomLink from '../../components/Auth/BottomLink';
-import AuthError from '../../components/Auth/AuthError';
+import {
+  AuthWrapper,
+  AuthContent,
+  InputWithLable,
+  AuthButton,
+  BottomLink,
+  AuthError,
+} from '../../components/Auth';
 
 const Login = () => {
   const navigate = useNavigate();

@@ -4,13 +4,14 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { isEmail, isLength, isAlphanumeric } from 'validator';
 import { localSignup } from '../../lib/api/auth';
-import AuthWrapper from '../../components/Auth/AuthWrapper';
-import AuthContent from '../../components/Auth/AuthContent';
-import InputWithLable from '../../components/Auth/InputWithLable';
-import AuthButton from '../../components/Auth/AuthButton';
-import BottomLink from '../../components/Auth/BottomLink';
-import AuthError from '../../components/Auth/AuthError';
-import Modal from '../../components/Modal/Modal';
+import {
+  AuthWrapper,
+  AuthContent,
+  InputWithLable,
+  AuthButton,
+  BottomLink,
+  AuthError,
+} from '../../components/Auth';
 
 const Signup = () => {
   const navigate = useNavigate();
