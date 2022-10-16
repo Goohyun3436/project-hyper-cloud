@@ -1,34 +1,3 @@
 {
-  "users": [
-    {
-      "email": "rnrn@naver.codfsdddm",
-      "password": "$2a$10$pOOZA/T36swAhU8RSFlSFONMi8T7N/lT03p.8/IFSehMsb4r9qzw2",
-      "userid": "rnrn",
-      "id": 1
-    },
-    {
-      "email": "rngus3436@g.kmou.ac.kr",
-      "password": "$2a$10$L5MTEkqchEYuxRUELdmo4u9/uzZ8FSyk/R48X6P2M8pnQrqDwxNWy",
-      "userid": "idid1",
-      "id": 2
-    },
-    {
-      "email": "rngus3436@naver.com",
-      "password": "$2a$10$SHTHySdbMi0PQf2qUk6wx.e17GF4PYgILoAk.OAqh2m3DQ1O4/oM2",
-      "userid": "idid1",
-      "id": 3
-    },
-    {
-      "email": "rngus3436@naver.co",
-      "password": "$2a$10$vGjWpJD9vilNzOzLDsjQGeqFVF37UptI7UJ9x97tvB6pKDsUo/grW",
-      "userid": "idid1",
-      "id": 4
-    },
-    {
-      "email": "rngus3436@naver.comm",
-      "password": "$2a$10$SYWQp4UHV3Fof2yQ38YdJOzT7.tJLDaoQRqhX767DHwfJhQKVia0W",
-      "userid": "idid2",
-      "id": 5
-    }
-  ]
+  "users": []
 }

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { useEffect } from 'react';
 import { isEmail, isLength, isAlphanumeric } from 'validator';
 import { localSignup } from '../../lib/api/auth';
 import AuthWrapper from '../../components/Auth/AuthWrapper';
@@ -9,8 +10,12 @@ import InputWithLable from '../../components/Auth/InputWithLable';
 import AuthButton from '../../components/Auth/AuthButton';
 import BottomLink from '../../components/Auth/BottomLink';
 import AuthError from '../../components/Auth/AuthError';
+import Modal from '../../components/Modal/Modal';
 
 const Signup = () => {
+  const navigate = useNavigate();
+  const [isModal, setIsModal] = useState(false);
+
   const { email, userid, password, passwordConfirm } = useSelector(
     state => state.auth.toJS().signup.form,
   );
@@ -64,64 +69,73 @@ const Signup = () => {
     if (name.indexOf('password') > -1 || !validation) return;
   };
 
-  const onSubmit = async () => {
+  const onSubmit = async e => {
+    e.preventDefault();
     try {
       const { data } = await localSignup({ email, userid, password });
       localStorage.setItem('login-token', data.accessToken);
       localStorage.setItem('user', data.user);
+      setIsModal(true);
     } catch (error) {
-      switch (error.response.data) {
-        case 'Email already exists':
-          console.log('이미 존재하는 이메일 입니다.');
-        default:
-          console.log(error.response);
-      }
+      setError(error.response.data);
     }
   };
 
+  const goToLogin = () => {
+    navigate('/auth/login');
+  };
+
   useEffect(() => {
-    setError();
     return () => {
       dispatch({ type: 'auth/INITIALIZE_FORM', form: 'signup' });
     };
   }, []);
 
   return (
-    <AuthWrapper>
-      <AuthContent title='회원가입'>
-        <InputWithLable
-          label='이메일'
-          name='email'
-          placeholder='이메일'
-          value={email}
-          onChange={handleChange}
+    <>
+      <AuthWrapper>
+        <AuthContent title='회원가입'>
+          <InputWithLable
+            label='이메일'
+            name='email'
+            placeholder='이메일'
+            value={email}
+            onChange={handleChange}
+          />
+          <InputWithLable
+            label='아이디'
+            name='userid'
+            placeholder='아이디'
+            value={userid}
+            onChange={handleChange}
+          />
+          <InputWithLable
+            label='비밀번호'
+            name='password'
+            placeholder='비밀번호'
+            value={password}
+            onChange={handleChange}
+          />
+          <InputWithLable
+            label='비밀번호 확인'
+            name='passwordConfirm'
+            placeholder='비밀번호 확인'
+            value={passwordConfirm}
+            onChange={handleChange}
+          />
+          {error && <AuthError>{error}</AuthError>}
+          <AuthButton onClick={onSubmit}>회원가입</AuthButton>
+          <BottomLink to='/auth/login'>로그인</BottomLink>
+        </AuthContent>
+      </AuthWrapper>
+      {isModal && (
+        <Modal
+          navigate={goToLogin}
+          setIsModal={setIsModal}
+          alertMessage={['회원가입 완료', '회원가입이 완료되었습니다.', '로그인하러 가기']}
         />
-        <InputWithLable
-          label='아이디'
-          name='userid'
-          placeholder='아이디'
-          value={userid}
-          onChange={handleChange}
-        />
-        <InputWithLable
-          label='비밀번호'
-          name='password'
-          placeholder='비밀번호'
-          value={password}
-          onChange={handleChange}
-        />
-        <InputWithLable
-          label='비밀번호 확인'
-          name='passwordConfirm'
-          placeholder='비밀번호 확인'
-          value={passwordConfirm}
-          onChange={handleChange}
-        />
-        {error && <AuthError>{error}</AuthError>}
-        <AuthButton onClick={onSubmit}>회원가입</AuthButton>
-        <BottomLink to='/auth/login'>로그인</BottomLink>
-      </AuthContent>
-    </AuthWrapper>
+      )}
+    </>
   );
 };
 
