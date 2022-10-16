@@ -6,7 +6,7 @@ const Modal = ({ navigate, setIsModal, alertMessage }) => {
       <Wrapper>
         <Title>{alertMessage.title}</Title>
         <Message>{alertMessage.message}</Message>
-        <CloseButton onClick={() => setIsModal(false)}>x</CloseButton>
+        {setIsModal && <CloseButton onClick={() => setIsModal(false)}>x</CloseButton>}
         <SubmitButton onClick={navigate}>{alertMessage.button}</SubmitButton>
       </Wrapper>
     </Background>

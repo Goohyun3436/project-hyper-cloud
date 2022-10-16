@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import HeaderWrapper from './HeaderWrapper';
-import LoginButton from './LoginButton/LoginButton';
+import LoginButton from './contents/LoginButton';
+import NavItem from './contents/NavItem';
 
 const Header = () => {
   const { token, userInfo } = useSelector(state => state.header.toJS());
@@ -13,6 +13,9 @@ const Header = () => {
 
   return (
     <HeaderWrapper>
+      <NavItem to='/about'>ABOUT</NavItem>
+      <NavItem to='/xr-business'>XR BUSINESS</NavItem>
+      <NavItem to='/news'>NEWS</NavItem>
       {token ? (
         <LoginButton type={'로그아웃'} onClick={removeToken} />
       ) : (
