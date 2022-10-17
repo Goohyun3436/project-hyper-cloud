@@ -1,12 +1,13 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import oc from 'open-color';
 import { shadow, media, sizes } from '../../lib/StyleUtil';
 import LoginButton from './contents/LoginButton';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const HeaderWrapper = ({ children }) => {
+  const location = useLocation();
   const [isToggle, setIsToggle] = useState(false);
   const { token, userInfo } = useSelector(state => state.header.toJS());
   const dispatch = useDispatch();
@@ -14,6 +15,10 @@ const HeaderWrapper = ({ children }) => {
   const removeToken = () => {
     dispatch({ type: 'header/REMOVE_TOKEN' });
   };
+
+  useEffect(() => {
+    setIsToggle(false);
+  }, [location]);
 
   return (
     <Positioner>
