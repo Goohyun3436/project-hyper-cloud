@@ -7,6 +7,7 @@ import LoginButton from './contents/LoginButton';
 import { useState } from 'react';
 
 const HeaderWrapper = ({ children }) => {
+  const [isToggle, setIsToggle] = useState(false);
   const { token, userInfo } = useSelector(state => state.header.toJS());
   const dispatch = useDispatch();
 
@@ -14,14 +15,12 @@ const HeaderWrapper = ({ children }) => {
     dispatch({ type: 'header/REMOVE_TOKEN' });
   };
 
-  const [isToggle, setIsToggle] = useState(false);
-
   return (
     <Positioner>
       <WhiteBackground>
         <HeaderContents>
           <TogleMenu onClick={() => setIsToggle(!isToggle)}>menu</TogleMenu>
-          <Logo to={'/'} isToggle={isToggle}>
+          <Logo $isToggle={isToggle} to={'/'}>
             HYPER CLOUD
           </Logo>
           <div className='wide-content'>
@@ -97,7 +96,7 @@ const Logo = styled(Link)`
 
   ${media.tablet`
     position: absolute;
-    top: ${props => (props.isToggle ? '17%' : '50%')};
+    top: ${props => (props.$isToggle ? '17%' : '50%')};
     left: 50%;
     transform: translate(-50%, -50%);
   `}
