@@ -1,16 +1,19 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 import oc from 'open-color';
+import { Link } from 'react-router-dom';
 import { shadow } from '../../../lib/StyleUtil';
 
-const LoginButton = () => <BorderedButton to='/login'>로그인 / 가입</BorderedButton>;
+const LoginButton = ({ type, onClick }) => (
+  <BorderedButton to='/auth/login' onClick={onClick}>
+    {type}
+  </BorderedButton>
+);
 
 export default LoginButton;
 
 const BorderedButton = styled(Link)`
   padding: 0.5rem;
   padding-bottom: 0.4rem;
-  margin-left: 5%;
   border: 1px solid ${oc.cyan[6]};
   border-radius: 2px;
   font-weight: 600;
