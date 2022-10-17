@@ -37,24 +37,27 @@ const WhiteBackground = styled.div`
 `;
 
 const HeaderContents = styled.div`
-  width: 1200px;
+  width: 95%;
+  max-width: 1280px;
   height: 55px;
   display: flex;
-  flex-direction: row;
+  padding: 1rem 0;
   align-items: center;
 
-  padding-right: 1rem;
-  padding-left: 1rem;
   ${media.wide`
-        width: 992px;
+        width: 95%;
     `}
 
   ${media.tablet`
-        width: 100%;
+        /* background-color: black; */
+    `}
+
+  ${media.phone`
+        background-color: black;
     `}
 `;
 
-const Logo = styled.div`
+const Logo = styled.span`
   font-size: 1.4rem;
   letter-spacing: 2px;
   color: ${oc.teal[7]};
