@@ -16,13 +16,14 @@ import Modal from '../../components/Modal/Modal';
 
 const Signup = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   const [isModal, setIsModal] = useState(false);
 
   const { email, userid, password, passwordConfirm } = useSelector(
     state => state.auth.toJS().signup.form,
   );
   const error = useSelector(state => state.auth.toJS().signup.error);
-  const dispatch = useDispatch();
 
   const validate = {
     email: value => {
@@ -59,16 +60,16 @@ const Signup = () => {
     },
   };
 
-  const setError = message => {
-    dispatch({ type: 'auth/SET_ERROR', form: 'signup', message });
-  };
-
   const handleChange = e => {
     const { name, value } = e.target;
     dispatch({ type: 'auth/CHANGE_INPUT', name, value, form: 'signup' });
 
     const validation = validate[name](value);
     if (name.indexOf('password') > -1 || !validation) return;
+  };
+
+  const setError = message => {
+    dispatch({ type: 'auth/SET_ERROR', form: 'signup', message });
   };
 
   const onSubmit = async e => {
