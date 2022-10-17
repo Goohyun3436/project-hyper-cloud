@@ -3,7 +3,7 @@ import { css, keyframes } from 'styled-components';
 export const sizes = {
   wide: '1200px',
   desktop: '992px',
-  tablet: '800px',
+  tablet: '768px',
   phone: '376px',
 };
 
