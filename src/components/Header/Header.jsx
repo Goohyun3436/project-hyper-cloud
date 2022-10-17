@@ -16,6 +16,7 @@ const Header = () => {
       <NavItem to='/about'>ABOUT</NavItem>
       <NavItem to='/xr-business'>XR BUSINESS</NavItem>
       <NavItem to='/news'>NEWS</NavItem>
+      {userInfo && <span>{userInfo.userid} 님</span>}
       {token ? (
         <LoginButton type={'로그아웃'} onClick={removeToken} />
       ) : (
