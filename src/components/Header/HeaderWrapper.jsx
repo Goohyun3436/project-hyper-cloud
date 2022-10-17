@@ -1,13 +1,14 @@
 import styled from 'styled-components';
 import oc from 'open-color';
 import { shadow, media } from '../../lib/StyleUtil';
+import { Link } from 'react-router-dom';
 
 const HeaderWrapper = ({ children }) => {
   return (
     <Positioner>
       <WhiteBackground>
         <HeaderContents>
-          <Logo>HYPER CLOUD</Logo>
+          <Logo to={'/'}>HYPER CLOUD</Logo>
           <Spacer />
           {children}
         </HeaderContents>
@@ -57,7 +58,7 @@ const HeaderContents = styled.div`
     `}
 `;
 
-const Logo = styled.span`
+const Logo = styled(Link)`
   font-size: 1.4rem;
   letter-spacing: 2px;
   color: ${oc.teal[7]};
