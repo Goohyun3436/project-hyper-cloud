@@ -9,11 +9,8 @@ export const putInUserInfo = () => ({ type: PUT_IN_USERINFO });
 export const removeToken = () => ({ type: REMOVE_TOKEN });
 
 const initialState = Map({
-  token: null,
-  userInfo: {
-    email: null,
-    userid: null,
-  },
+  token: localStorage.getItem('login-token'),
+  userInfo: localStorage.getItem('userInfo'),
 });
 
 const header = (state = initialState, action) => {
@@ -33,7 +30,7 @@ const header = (state = initialState, action) => {
     case REMOVE_TOKEN: {
       localStorage.removeItem('login-token');
       localStorage.removeItem('userInfo');
-      return initialState;
+      return state.setIn(initialState);
     }
     default:
       return state;
