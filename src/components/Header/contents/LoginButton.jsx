@@ -14,6 +14,7 @@ export default LoginButton;
 const BorderedButton = styled(Link)`
   padding: 0.5rem;
   padding-bottom: 0.4rem;
+  margin-left: 1.5rem;
   border: 1px solid ${oc.cyan[6]};
   border-radius: 2px;
   font-weight: 600;

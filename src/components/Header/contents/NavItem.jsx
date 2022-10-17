@@ -12,6 +12,7 @@ export default NavItem;
 const BorderedButton = styled(Link)`
   padding: 0.5rem 1.5rem;
   padding-bottom: 0.4rem;
+  margin: 0 0.5rem;
   border-radius: 20px;
   font-weight: 600;
   color: ${oc.cyan[6]};
