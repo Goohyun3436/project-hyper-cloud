@@ -1,46 +1,17 @@
 {
   "users": [
     {
-      "email": "rngus3436@g.kmou.ac.krasdfasdfasdf",
-      "password": "$2a$10$UeuPRsdB3IlN/4vGhS6JsOSdGTwoKZLgVu7uqvQBsa0W1ys8Eq/6G",
-      "userid": "sdfsdfsdf",
-      "id": 1
-    },
-    {
       "email": "rngus3436@naver.com",
       "password": "$2a$10$KSnlIvXJDGQ5MSzGBZoA7OJsH/lkBen.IsP3hJAN2Kuk9LcRSouGC",
       "userid": "3436rngus",
-      "id": 2
+      "id": 1
     },
     {
       "email": "3436rngus@naver.com",
-      "password": "$2a$10$UZKrc/Hn8oF.eQ9PPSaOrOAwTeiGk3B.jT7TrISIwsxy5Sfr7Cwoa",
+      "password": "$2a$10$l3oX2cirkVmR06npWBY5eu8ZFTcYJmK8zmP8LDoF5dPD4XlGE86CS",
       "userid": "3436rngus",
-      "id": 3
-    },
-    {
-      "email": "3436rngus@naver.comm",
-      "password": "$2a$10$89b9TJrVIw7Cz9l22k2YEuH1IzdZiDfXN.NRqMhL9nj87Ga2.//XG",
-      "userid": "3436rngus",
-      "id": 4
-    },
-    {
-      "email": "3436rngus@naver.commm",
-      "password": "$2a$10$U9pbR/aWrdVoVC93ssGqremrjvgwsg1tp9rTpvVjDVx0AaCOfQ3Eq",
-      "userid": "sfsdf",
-      "id": 5
-    },
-    {
-      "email": "3436rngus@naver.commmm",
-      "password": "$2a$10$wO9QbGXE1b05jj4oxkLoKeFQoMjLZQkpzdM8N25XyPFephgn0Utgm",
-      "userid": "sfsdf",
-      "id": 6
-    },
-    {
-      "email": "3436rngus@naver.commmmm",
-      "password": "$2a$10$DWgkPtk/0ytNnQxJp2X7Q.7BC9jET6CvWdMfzzwDfZM5Ue8d7PDEK",
-      "userid": "dsfadf",
-      "id": 7
+      "id": 2
     }
-  ]
+  ],
+  "posts": []
 }

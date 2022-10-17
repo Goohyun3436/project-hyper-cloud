@@ -14,17 +14,17 @@ import {
 
 const Login = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const { email, password } = useSelector(state => state.auth.toJS().login.form);
   const error = useSelector(state => state.auth.toJS().login.error);
-  const dispatch = useDispatch();
-
-  const setError = message => {
-    dispatch({ type: 'auth/SET_ERROR', form: 'login', message });
-  };
 
   const handleChange = e => {
     const { name, value } = e.target;
     dispatch({ type: 'auth/CHANGE_INPUT', name, value, form: 'login' });
+  };
+
+  const setError = message => {
+    dispatch({ type: 'auth/SET_ERROR', form: 'login', message });
   };
 
   const onSubmit = async e => {

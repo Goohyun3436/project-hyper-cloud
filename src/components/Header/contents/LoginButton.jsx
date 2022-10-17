@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import oc from 'open-color';
 import { Link } from 'react-router-dom';
-import { shadow } from '../../../lib/StyleUtil';
+import { shadow, media } from '../../../lib/StyleUtil';
 
 const LoginButton = ({ type, onClick }) => (
   <BorderedButton to='/auth/login' onClick={onClick}>
@@ -13,7 +13,7 @@ export default LoginButton;
 
 const BorderedButton = styled(Link)`
   padding: 0.5rem;
-  padding-bottom: 0.4rem;
+  margin-left: 10px;
   border: 1px solid ${oc.cyan[6]};
   border-radius: 2px;
   font-weight: 600;
@@ -31,4 +31,9 @@ const BorderedButton = styled(Link)`
   &:active {
     transform: translateY(3px);
   }
+
+  ${media.tablet`
+    border: 0;
+    font-size: 14px;
+  `}
 `;

@@ -1,17 +1,48 @@
 import styled from 'styled-components';
+import { Link, useLocation } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 import oc from 'open-color';
-import { shadow, media } from '../../lib/StyleUtil';
+import { shadow, media, sizes } from '../../lib/StyleUtil';
+import LoginButton from './contents/LoginButton';
+import { useState, useEffect } from 'react';
 
 const HeaderWrapper = ({ children }) => {
+  const location = useLocation();
+  const [isToggle, setIsToggle] = useState(false);
+  const { token, userInfo } = useSelector(state => state.header.toJS());
+  const dispatch = useDispatch();
+
+  const removeToken = () => {
+    dispatch({ type: 'header/REMOVE_TOKEN' });
+  };
+
+  useEffect(() => {
+    setIsToggle(false);
+  }, [location]);
+
   return (
     <Positioner>
       <WhiteBackground>
         <HeaderContents>
-          <Logo>HYPER CLOUD</Logo>
-          <Spacer />
-          {children}
+          <TogleMenu onClick={() => setIsToggle(!isToggle)}>menu</TogleMenu>
+          <Logo $isToggle={isToggle} to={'/'}>
+            HYPER CLOUD
+          </Logo>
+          <div className='wide-content'>
+            {children}
+            {userInfo && <span className='user-info'>{userInfo.userid} 님</span>}
+          </div>
+          {token ? (
+            <LoginButton type={'로그아웃'} onClick={removeToken} />
+          ) : (
+            <LoginButton type={'로그인 / 가입'} />
+          )}
         </HeaderContents>
       </WhiteBackground>
+      <TogleMenuList isToggle={isToggle}>
+        {children}
+        {userInfo && <span className='user-info'>{userInfo.userid} 님</span>}
+      </TogleMenuList>
       <GradientBorder />
     </Positioner>
   );
@@ -26,7 +57,8 @@ const Positioner = styled.div`
   z-index: 1;
   top: 0px;
   width: 100%;
-  ${shadow(1)}
+  min-width: ${sizes.phone};
+  ${shadow(1)};
 `;
 
 const WhiteBackground = styled.div`
@@ -37,32 +69,69 @@ const WhiteBackground = styled.div`
 `;
 
 const HeaderContents = styled.div`
-  width: 1200px;
-  height: 55px;
   display: flex;
-  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
+  padding: 1rem 0;
+  width: 95%;
+  max-width: 1280px;
+  height: 55px;
 
-  padding-right: 1rem;
-  padding-left: 1rem;
-  ${media.wide`
-        width: 992px;
-    `}
+  .wide-content {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    .user-info {
+      font-size: 13px;
+    }
+  }
 
   ${media.tablet`
-        width: 100%;
-    `}
+    .wide-content {
+      display: none;
+    }
+  `}
 `;
 
-const Logo = styled.div`
+const Logo = styled(Link)`
   font-size: 1.4rem;
   letter-spacing: 2px;
   color: ${oc.teal[7]};
   font-family: 'Rajdhani';
+
+  ${media.tablet`
+    position: absolute;
+    top: ${props => (props.$isToggle ? '17%' : '50%')};
+    left: 50%;
+    transform: translate(-50%, -50%);
+  `}
 `;
 
-const Spacer = styled.div`
-  flex-grow: 1;
+const TogleMenu = styled.div`
+  display: none;
+  ${media.tablet`
+    display: flex;
+    justify-content: center;
+    width: 50px;
+    padding: 0.5rem;
+    color: ${oc.cyan[6]};
+    font-weight: bold;
+    cursor: pointer;
+  `}
+`;
+
+const TogleMenuList = styled.ul`
+  display: none;
+  ${media.tablet`
+    display: ${props => (props.isToggle ? 'flex' : 'none')};
+    flex-direction: column;
+    background-color: white;
+    .user-info {
+      padding: 0.5rem 1.2rem;
+      padding-top: 1.2rem;
+      font-size: 12px;
+    }
+  `}
 `;
 
 const GradientBorder = styled.div`

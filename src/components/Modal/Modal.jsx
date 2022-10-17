@@ -33,7 +33,7 @@ const Wrapper = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 30%;
+  width: 350px;
   border-radius: 5px;
   background-color: #fff;
   text-align: center;
