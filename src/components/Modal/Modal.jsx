@@ -1,4 +1,11 @@
 import styled from 'styled-components';
+import { media } from '../../lib/StyleUtil';
+import {
+  backgroundPupleColor,
+  brightPupleColor,
+  deepPupleColor,
+  hoverPupleColor,
+} from '../../Theme';
 
 const Modal = ({ navigate, setIsModal, alertMessage }) => {
   return (
@@ -33,21 +40,29 @@ const Wrapper = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 350px;
+  margin-left: 28px;
+  width: 300px;
   border-radius: 5px;
-  background-color: #fff;
+  background-color: #2b262e;
   text-align: center;
+
+  ${media.phone`
+    margin: 0;
+    margin-top: 40px;
+  `}
 `;
 
 const Title = styled.p`
   padding: 10px 20px;
-  border-bottom: 2px solid gray;
+  border-bottom: 2px solid #a298a8;
+  color: #d8d8d8;
   font-size: 18px;
   font-weight: bold;
 `;
 
 const Message = styled.p`
   padding: 20px;
+  color: #a298a8;
   font-size: 17px;
 `;
 
@@ -57,20 +72,20 @@ const CloseButton = styled.div`
   top: -4.5%;
   width: 20px;
   height: 20px;
-  color: white;
-  background-color: black;
+  color: #a298a8;
+  background-color: ${brightPupleColor};
   border-radius: 20px;
   cursor: pointer;
 `;
 
 const SubmitButton = styled.button`
   width: 50%;
-  padding: 5px 30px;
+  padding: 5px 0;
   margin: 20px auto;
   border: 0;
   border-radius: 5px;
-  background-color: black;
-  color: #fff;
+  background-color: #a298a8;
+  color: ${deepPupleColor};
   font-size: 16px;
 
   :hover {
