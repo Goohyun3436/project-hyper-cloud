@@ -22,7 +22,7 @@ const HeaderWrapper = ({ children }) => {
   }, [location]);
 
   return (
-    <Positioner>
+    <>
       <MainSnb />
       {/* <HeaderContents>
         <TogleMenu onClick={() => setIsToggle(!isToggle)}>menu</TogleMenu>
@@ -43,7 +43,7 @@ const HeaderWrapper = ({ children }) => {
         {children}
         {userInfo && <span className='user-info'>{userInfo.userid} 님</span>}
       </TogleMenuList> */}
-    </Positioner>
+    </>
   );
 };
 
@@ -54,11 +54,11 @@ const Positioner = styled.div`
   z-index: 1;
   top: 0;
   left: 0;
-  width: 30%;
-  min-width: 310px;
-  height: 100%;
-  /* min-width: ${sizes.phone}; */
-  /* ${shadow(1)}; */
+  /* width: 30%; */
+  width: 100%;
+  height: 10%;
+  /* min-width: 310px; */
+  /* height: 100%; */
 `;
 
 const HeaderContents = styled.div`
