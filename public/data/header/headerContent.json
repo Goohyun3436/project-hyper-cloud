@@ -25,7 +25,12 @@
         "clickedSrc": "https://user-images.githubusercontent.com/94745558/196418885-05d24577-cd11-426b-9d73-4f3b277710ad.png",
         "alt": "setting-icon"
       }
-    ]
+    ],
+    "token": {
+      "id": 3,
+      "login": "https://user-images.githubusercontent.com/94745558/196468196-b311988e-6fd0-40b0-bcfb-7bf14cc24fba.png",
+      "logout": "https://user-images.githubusercontent.com/94745558/196470421-72f28e48-c740-4a93-b2cd-2b4d80dba076.png"
+    }
   },
   "menuContents": {
     "content": {
@@ -47,8 +52,7 @@
           "title": "ADMINISTRATION",
           "content": [
             { "subTitle": "Roles", "pathName": "/setting/roles" },
-            { "subTitle": "Users", "pathName": "/setting/users" },
-            { "subTitle": "Logout", "pathName": "/" }
+            { "subTitle": "Users", "pathName": "/setting/users" }
           ]
         }
       ]
