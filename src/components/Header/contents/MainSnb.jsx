@@ -1,17 +1,22 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { shadow, media, sizes } from '../../../lib/StyleUtil';
+import { media, sizes } from '../../../lib/StyleUtil';
 import headerContent from '../../../../public/data/header/headerContent.json';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const MainSnb = () => {
+  const navigate = useNavigate();
   const location = useLocation();
   const { menuIcons, menuContents } = headerContent;
   const [isContentIconMenu, setIsContentIconMenu] = useState([false, false, false]);
+  const [isOpenDetailSnb, setIsOpenDetailSnb] = useState(false);
 
   const menuSelect = e => {
     const targetId = Number(e.target.id);
     let result = [];
+
+    if (targetId === 1) navigate('/images');
+
     for (let i = 0; i < isContentIconMenu.length; i++) {
       i === targetId ? result.push(true) : result.push(false);
     }
@@ -19,13 +24,18 @@ const MainSnb = () => {
   };
 
   useEffect(() => {
-    setIsContentIconMenu([false, false, false]);
+    if (isContentIconMenu[0] || isContentIconMenu[2]) setIsOpenDetailSnb(true);
+  }, [isContentIconMenu]);
+
+  useEffect(() => {
+    setIsOpenDetailSnb(false);
+    if (location.pathname === '/') setIsContentIconMenu([false, false, false]);
   }, [location]);
 
   return (
     <>
       <IconSnb>
-        <MainIcon src={menuIcons.main.src} alt={menuIcons.main.alt} />
+        <MainIcon onClick={() => navigate('/')} src={menuIcons.main.src} alt={menuIcons.main.alt} />
         <MenuSection>
           {menuIcons.content.map(iconInfo => {
             return (
@@ -53,7 +63,7 @@ const MainSnb = () => {
           })}
         </MenuSection>
       </IconSnb>
-      <DetailSnb isOpen={isContentIconMenu[0] || isContentIconMenu[2]}>
+      <DetailSnb isOpen={isOpenDetailSnb}>
         <Logo>HYPER CLOUD</Logo>
         <div className='detail-menu'>
           {isContentIconMenu[0] && (
@@ -126,6 +136,7 @@ const MenuSection = styled.div`
 const MainIcon = styled.img`
   width: 50%;
   padding: 1rem 0;
+  cursor: pointer;
 `;
 
 const MenuIcon = styled.img`
@@ -155,7 +166,6 @@ const DetailSnb = styled.div`
       padding: 1rem 1.5rem;
       color: #92a7de;
       letter-spacing: 1.5px;
-      cursor: pointer;
     }
   }
 `;
