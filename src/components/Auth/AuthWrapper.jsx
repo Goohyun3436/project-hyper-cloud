@@ -19,6 +19,7 @@ const AuthWrapper = ({ children }) => {
 export default AuthWrapper;
 
 const Positioner = styled.div`
+  margin-left: 25px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -32,7 +33,7 @@ const ShadowedBox = styled.div`
 `;
 
 const LogoWrapper = styled.div`
-  background: ${oc.teal[7]};
+  background: black;
   height: 5rem;
   display: flex;
   align-items: center;

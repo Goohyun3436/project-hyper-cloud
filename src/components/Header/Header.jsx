@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { media } from '../../lib/StyleUtil';
+import { deepPupleColor, brightPupleColor, hoverPupleColor } from '../../Theme';
 import headerContent from '../../../public/data/header/headerContent.json';
 
 const Header = () => {
@@ -12,7 +13,7 @@ const Header = () => {
   const [isContentIconMenu, setIsContentIconMenu] = useState([false, false, false]);
   const [isOpenDetailSnb, setIsOpenDetailSnb] = useState(false);
 
-  const { token, userInfo } = useSelector(state => state.header.toJS());
+  const { token } = useSelector(state => state.header.toJS());
   const dispatch = useDispatch();
 
   const removeToken = () => {
@@ -165,7 +166,7 @@ const IconSnb = styled.div`
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: #352e4d;
+  background-color: ${brightPupleColor};
   padding: 0 0.5rem;
 
   ${media.phone`
@@ -193,7 +194,7 @@ const MenuSection = styled.div`
 const MainIcon = styled.img`
   width: 80%;
   height: auto;
-  padding: 1rem 0;
+  margin: 1rem 0;
   cursor: pointer;
 
   ${media.phone`
@@ -206,7 +207,7 @@ const MainIcon = styled.img`
 const MenuIcon = styled.img`
   width: 70%;
   height: auto;
-  padding: 1rem 0;
+  margin: 1rem 0;
   cursor: pointer;
 
   &:active {
@@ -234,11 +235,10 @@ const DetailSnb = styled.div`
   min-width: 240px;
   height: 100%;
   padding: 1rem 0;
-  background-color: #1c133a;
+  background-color: ${deepPupleColor};
   transition: 0.5s all;
   .content {
     margin: 1rem 0;
-    background-color: #1c133a;
     letter-spacing: 1px;
     p {
       padding: 1rem 1.5rem;
@@ -267,7 +267,7 @@ const NavItem = styled(Link)`
 
   &:hover {
     font-weight: bold;
-    background: #281e49;
+    background: ${hoverPupleColor};
   }
 
   &:active {
