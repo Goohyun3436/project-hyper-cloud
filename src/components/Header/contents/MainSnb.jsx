@@ -1,9 +1,11 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { shadow, media, sizes } from '../../../lib/StyleUtil';
 import headerContent from '../../../../public/data/header/headerContent.json';
+import { Link, useLocation } from 'react-router-dom';
 
 const MainSnb = () => {
+  const location = useLocation();
   const { menuIcons, menuContents } = headerContent;
   const [isContentIconMenu, setIsContentIconMenu] = useState([false, false, false]);
 
@@ -15,6 +17,10 @@ const MainSnb = () => {
     }
     setIsContentIconMenu(result);
   };
+
+  useEffect(() => {
+    setIsContentIconMenu([false, false, false]);
+  }, [location]);
 
   return (
     <>
@@ -58,7 +64,11 @@ const MainSnb = () => {
                     <p>{detailMenu.title}</p>
                     <ul>
                       {detailMenu.content.map(subMenu => {
-                        return <li key={subMenu.subTitle}>{subMenu.subTitle}</li>;
+                        return (
+                          <NavItem to={subMenu.pathName} key={subMenu.subTitle}>
+                            {subMenu.subTitle}
+                          </NavItem>
+                        );
                       })}
                     </ul>
                   </div>
@@ -74,7 +84,11 @@ const MainSnb = () => {
                     <p>{detailMenu.title}</p>
                     <ul>
                       {detailMenu.content.map(subMenu => {
-                        return <li key={subMenu.subTitle}>{subMenu.subTitle}</li>;
+                        return (
+                          <NavItem to={subMenu.pathName} key={subMenu.subTitle}>
+                            {subMenu.subTitle}
+                          </NavItem>
+                        );
                       })}
                     </ul>
                   </div>
@@ -94,10 +108,10 @@ const IconSnb = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  width: 25%;
-  height: 100%;
   position: absolute;
   z-index: 2;
+  width: 25%;
+  height: 100%;
   background-color: #352e4d;
 `;
 
@@ -120,47 +134,57 @@ const MenuIcon = styled.img`
   cursor: pointer;
 
   &:active {
-    transform: translateY(3px);
+    transform: translateX(3px);
   }
 `;
 
 const DetailSnb = styled.div`
   display: flex;
   flex-direction: column;
-  width: 75%;
-  height: 100%;
   position: absolute;
   left: ${props => (props.isOpen ? '25%' : '-100%')};
+  width: 75%;
+  height: 100%;
   padding: 1rem 0;
   background-color: #1c133a;
-  overflow: hidden;
   transition: 0.5s all;
   .content {
     margin: 1rem 0;
     letter-spacing: 1px;
     p {
-      padding: 1rem 1rem;
+      padding: 1rem 1.5rem;
       color: #92a7de;
+      letter-spacing: 1.5px;
       cursor: pointer;
     }
-    li {
-      padding: 1rem 1rem;
-      padding-left: 1.5rem;
-      color: white;
-      font-size: 14px;
-      font-weight: 300;
-      cursor: pointer;
-    }
+  }
+`;
+
+const NavItem = styled(Link)`
+  display: block;
+  padding: 1rem 1.5rem;
+  color: white;
+  font-size: 14px;
+  font-weight: 300;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+
+  &:hover {
+    font-weight: bold;
+    background: #281e49;
+  }
+
+  &:active {
+    transform: translateY(3px);
   }
 `;
 
 const Logo = styled.div`
   padding: 0.5rem 0;
   text-align: center;
-  letter-spacing: 2px;
   color: white;
   font-size: 1.4rem;
-  font-family: 'Rajdhani';
+  letter-spacing: 2px;
 
   /* ${media.tablet`
     position: absolute;

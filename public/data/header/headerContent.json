@@ -33,9 +33,9 @@
         {
           "title": "PAGES",
           "content": [
-            { "subTitle": "ABOUT" },
-            { "subTitle": "XR-BUSINESS" },
-            { "subTitle": "NEWS" }
+            { "subTitle": "ABOUT", "pathName": "/about" },
+            { "subTitle": "XR-BUSINESS", "pathName": "/xr-business" },
+            { "subTitle": "NEWS", "pathName": "/news" }
           ]
         }
       ],
@@ -44,8 +44,12 @@
     "user": {
       "setting": [
         {
-          "title": "ADMINISTRATION PANEL",
-          "content": [{ "subTitle": "Roles" }, { "subTitle": "Users" }, { "subTitle": "Logout" }]
+          "title": "ADMINISTRATION",
+          "content": [
+            { "subTitle": "Roles", "pathName": "/setting/roles" },
+            { "subTitle": "Users", "pathName": "/setting/users" },
+            { "subTitle": "Logout", "pathName": "/" }
+          ]
         }
       ]
     }
