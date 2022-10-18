@@ -229,7 +229,7 @@ const DetailSnb = styled.div`
   display: flex;
   flex-direction: column;
   position: absolute;
-  left: ${props => (props.isOpen ? '50px' : '-100%')};
+  left: ${props => (props.isOpen ? '50px' : '-50%')};
   width: 20%;
   min-width: 240px;
   height: 100%;
@@ -248,7 +248,7 @@ const DetailSnb = styled.div`
   }
 
   ${media.phone`
-    left: ${props => (props.isOpen ? '0%' : '-100%')};
+    left: ${props => (props.isOpen ? '0%' : '-90%')};
     top: 40px;
     width: 50%;
     min-width: 180px; 
