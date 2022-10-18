@@ -144,7 +144,7 @@ export default Header;
 
 const Positioner = styled.div`
   position: fixed;
-  z-index: 1;
+  z-index: 2;
   top: 0;
   left: 0;
   width: 50px;
@@ -163,7 +163,6 @@ const IconSnb = styled.div`
   align-items: center;
   flex-direction: column;
   position: absolute;
-  z-index: 2;
   width: 100%;
   height: 100%;
   background-color: #352e4d;
@@ -229,6 +228,7 @@ const DetailSnb = styled.div`
   display: flex;
   flex-direction: column;
   position: absolute;
+  z-index: 1;
   left: ${props => (props.isOpen ? '50px' : '-50%')};
   width: 20%;
   min-width: 240px;
