@@ -130,9 +130,8 @@ const Positioner = styled.div`
   z-index: 1;
   top: 0;
   left: 0;
-  width: 8%;
+  width: 50px;
   min-width: 50px;
-  max-width: 60px;
   height: 100%;
 
   ${media.phone`
@@ -213,8 +212,9 @@ const DetailSnb = styled.div`
   display: flex;
   flex-direction: column;
   position: absolute;
-  left: ${props => (props.isOpen ? '10%' : '-100%')};
-  width: 75%;
+  left: ${props => (props.isOpen ? '50px' : '-100%')};
+  width: 20%;
+  min-width: 240px;
   height: 100%;
   padding: 1rem 0;
   background-color: #1c133a;
@@ -232,7 +232,7 @@ const DetailSnb = styled.div`
 
   ${media.phone`
     left: ${props => (props.isOpen ? '0%' : '-100%')};
-    top: 10%;
+    top: 40px;
     width: 50%;
     min-width: 180px; 
     font-size: 14px;
@@ -269,7 +269,7 @@ const Logo = styled.div`
   font-size: 1.4rem;
   letter-spacing: 2px;
 
-  ${media.tablet`
+  ${media.phone`
     font-size: 1rem;
   `}
 `;
