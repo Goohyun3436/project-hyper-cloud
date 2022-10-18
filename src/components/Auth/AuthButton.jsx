@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import oc from 'open-color';
-import { shadow } from '../../lib/StyleUtil';
+import { media, shadow } from '../../lib/StyleUtil';
+import { brightPupleColor, deepPupleColor, hoverPupleColor } from '../../Theme';
 
 const AuthButton = ({ children, onClick }) => {
   return <Wrapper onClick={onClick}>{children}</Wrapper>;
@@ -9,15 +9,15 @@ const AuthButton = ({ children, onClick }) => {
 export default AuthButton;
 
 const Wrapper = styled.div`
-  margin-top: 1rem;
-  padding-top: 0.6rem;
-  padding-bottom: 0.5rem;
+  margin-top: 1.5rem;
+  padding: 0.8rem;
+  border-radius: 5px;
 
-  background: ${oc.teal[6]};
+  background: ${hoverPupleColor};
   color: white;
 
   text-align: center;
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-weight: 500;
 
   cursor: pointer;
@@ -25,11 +25,15 @@ const Wrapper = styled.div`
   transition: 0.2s all;
 
   &:hover {
-    background: ${oc.teal[5]};
+    background: ${deepPupleColor};
     ${shadow(0)}
   }
 
   &:active {
-    background: ${oc.teal[7]};
+    background: ${deepPupleColor};
   }
+
+  ${media.phone`
+    font-size: 0.8rem;
+  `}
 `;

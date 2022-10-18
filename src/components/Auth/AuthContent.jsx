@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import oc from 'open-color';
+import { media } from '../../lib/StyleUtil';
 
 const AuthContent = ({ title, children }) => {
   return (
@@ -13,8 +13,13 @@ const AuthContent = ({ title, children }) => {
 export default AuthContent;
 
 const Title = styled.div`
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: 500;
-  color: ${oc.gray[8]};
-  margin-bottom: 1rem;
+  color: white;
+  margin-bottom: 1.5rem;
+
+  ${media.phone`
+    margin-bottom: 1rem;
+    font-size: 1rem;
+  `}
 `;
