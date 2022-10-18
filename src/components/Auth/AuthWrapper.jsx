@@ -2,9 +2,11 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import oc from 'open-color';
 import { shadow } from '../../lib/styleUtil';
+import PagePositioner from '../PagePositioner';
 
 const AuthWrapper = ({ children }) => {
   return (
+    // <PagePositioner>
     <Positioner>
       <ShadowedBox>
         <LogoWrapper>
@@ -13,6 +15,7 @@ const AuthWrapper = ({ children }) => {
         <Contents>{children}</Contents>
       </ShadowedBox>
     </Positioner>
+    // </PagePositioner>
   );
 };
 
@@ -24,7 +27,6 @@ const Positioner = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 0;
 `;
 
 const ShadowedBox = styled.div`

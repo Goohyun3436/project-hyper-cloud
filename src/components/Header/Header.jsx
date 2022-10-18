@@ -149,12 +149,10 @@ const Positioner = styled.div`
   top: 0;
   left: 0;
   width: 50px;
-  min-width: 50px;
   height: 100%;
 
   ${media.phone`
     width: 100%;
-    max-width: 100%;
     height: 40px;
   `}
 `;
@@ -171,7 +169,7 @@ const IconSnb = styled.div`
 
   ${media.phone`
     flex-direction: row;
-    padding: 0;
+    /* padding: 0.5rem 0; */
   `}
 `;
 
@@ -198,6 +196,7 @@ const MainIcon = styled.img`
   cursor: pointer;
 
   ${media.phone`
+    margin: 0;
     width: auto;
     height: 70%;
     padding: 0 1rem;
@@ -216,6 +215,7 @@ const MenuIcon = styled.img`
 
   ${media.phone`
     width: auto;
+    margin: 0;
     height: 25px;
     padding: 0 0.5rem;
    
