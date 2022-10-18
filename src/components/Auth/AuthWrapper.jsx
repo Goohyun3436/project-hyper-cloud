@@ -2,17 +2,20 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { media, shadow } from '../../lib/styleUtil';
 import { deepPupleColor, brightPupleColor, hoverPupleColor } from '../../Theme';
+import PagePositioner from '../PagePositioner';
 
 const AuthWrapper = ({ children }) => {
   return (
-    <Positioner>
-      <ShadowedBox>
-        <LogoWrapper>
-          <Logo to='/'>HYPER CLOUD</Logo>
-        </LogoWrapper>
-        <Contents>{children}</Contents>
-      </ShadowedBox>
-    </Positioner>
+    <PagePositioner>
+      <Positioner>
+        <ShadowedBox>
+          <LogoWrapper>
+            <Logo to='/'>HYPER CLOUD</Logo>
+          </LogoWrapper>
+          <Contents>{children}</Contents>
+        </ShadowedBox>
+      </Positioner>
+    </PagePositioner>
   );
 };
 
