@@ -23,7 +23,6 @@ const header = (state = initialState, action) => {
 
     case PUT_IN_USERINFO: {
       const { userInfo } = action;
-      console.log(userInfo);
       localStorage.setItem('userInfo', JSON.stringify(userInfo));
       return state.setIn(['userInfo'], userInfo);
     }
@@ -31,7 +30,7 @@ const header = (state = initialState, action) => {
     case REMOVE_TOKEN: {
       localStorage.removeItem('login-token');
       localStorage.removeItem('userInfo');
-      return state.setIn(initialState);
+      return initialState;
     }
     default:
       return state;

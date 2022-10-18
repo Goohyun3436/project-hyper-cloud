@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import oc from 'open-color';
+import { media } from '../../lib/StyleUtil';
 
 const InputWithLable = ({ label, ...rest }) => {
   return (
@@ -19,18 +19,28 @@ const Wrapper = styled.div`
 `;
 
 const Label = styled.div`
-  font-size: 1rem;
-  color: ${oc.gray[6]};
-  margin-bottom: 0.25rem;
+  font-size: 0.9rem;
+  color: white;
+  margin-bottom: 0.5rem;
+
+  ${media.phone`
+    font-size: 0.8rem;
+  `}
 `;
 
 const Input = styled.input`
   width: 100%;
-  border: 1px solid ${oc.gray[3]};
+  border: 0;
   outline: none;
-  border-radius: 0px;
-  line-height: 2.5rem;
-  font-size: 1.2rem;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
+  margin-top: 5px;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  line-height: 2.5rem;
+
+  ${media.phone`
+    height: 30px;
+    font-size: 0.9rem;
+  `}
 `;

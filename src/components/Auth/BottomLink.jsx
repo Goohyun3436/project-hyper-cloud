@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import oc from 'open-color';
 import { Link } from 'react-router-dom';
+import { media } from '../../lib/StyleUtil';
 
 const BottomLink = ({ to, children }) => {
   return (
@@ -18,8 +19,12 @@ const Aligner = styled.div`
 `;
 
 const StyledLink = styled(Link)`
-  color: ${oc.gray[6]};
+  color: #b8b7c6;
   &:hover {
     color: ${oc.gray[7]};
   }
+
+  ${media.phone`
+    font-size: 0.9rem;
+  `}
 `;
