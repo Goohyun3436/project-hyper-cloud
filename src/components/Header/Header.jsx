@@ -50,10 +50,8 @@ const HeaderWrapper = ({ children }) => {
 export default HeaderWrapper;
 
 const Positioner = styled.div`
-  display: flex;
-  flex-direction: row;
   position: fixed;
-  /* z-index: 1; */
+  z-index: 1;
   top: 0;
   left: 0;
   width: 30%;

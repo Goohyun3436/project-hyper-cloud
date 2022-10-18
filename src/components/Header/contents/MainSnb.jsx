@@ -20,6 +20,11 @@ const MainSnb = () => {
     for (let i = 0; i < isContentIconMenu.length; i++) {
       i === targetId ? result.push(true) : result.push(false);
     }
+
+    if (result.indexOf(true) === isContentIconMenu.indexOf(true)) {
+      setIsOpenDetailSnb(!isOpenDetailSnb);
+      return;
+    }
     setIsContentIconMenu(result);
   };
 
