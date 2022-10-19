@@ -1,10 +1,24 @@
+import axios from 'axios';
+import { useEffect } from 'react';
 import styled from 'styled-components';
+import { fetchPreviewData } from '../../lib/api/preview';
 import History from './components/about/History';
 import TeamInfo from './components/about/TeamInfo';
 import TeamVideo from './components/about/TeamVideo';
 import MainTitle from './components/MainTitle';
 
 const PreviewAbout = () => {
+  useEffect(() => {
+    (async () => {
+      try {
+        const { data } = await fetchPreviewData();
+        console.log(data);
+      } catch (error) {
+        console.log(error);
+      }
+    })();
+  }, []);
+
   return (
     <Wrapper>
       <MainTitle />

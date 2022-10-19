@@ -33,6 +33,7 @@
   ],
   "posts": [
     {
+      "id": 0,
       "about": {
         "mainTitle": {
           "white": "ABOUT",
@@ -114,9 +115,9 @@
             }
           ]
         }
-      },
-      "xr-business": {},
-      "news": {}
-    }
+      }
+    },
+    { "id": 1, "xr-business": {} },
+    { "id": 2, "news": {} }
   ]
 }
