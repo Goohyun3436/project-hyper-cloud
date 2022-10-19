@@ -2,17 +2,20 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { media, shadow } from '../../lib/styleUtil';
 import { deepPupleColor, brightPupleColor, hoverPupleColor } from '../../Theme';
+import PagePositioner from '../PagePositioner';
 
 const AuthWrapper = ({ children }) => {
   return (
-    <Positioner>
-      <ShadowedBox>
-        <LogoWrapper>
-          <Logo to='/'>HYPER CLOUD</Logo>
-        </LogoWrapper>
-        <Contents>{children}</Contents>
-      </ShadowedBox>
-    </Positioner>
+    <PagePositioner>
+      <Positioner>
+        <ShadowedBox>
+          <LogoWrapper>
+            <Logo to='/'>HYPER CLOUD</Logo>
+          </LogoWrapper>
+          <Contents>{children}</Contents>
+        </ShadowedBox>
+      </Positioner>
+    </PagePositioner>
   );
 };
 
@@ -23,15 +26,13 @@ const Positioner = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 80%;
+  width: 40%;
+  min-width: 300px;
   max-width: 500px;
-  margin-left: 28px;
   border-radius: 15px;
 
   ${media.phone`
     min-width: 260px;
-    margin: 0;
-    margin-top: 40px;
   `}
 `;
 
@@ -57,7 +58,7 @@ const LogoWrapper = styled.div`
 const Logo = styled(Link)`
   color: white;
   font-family: 'Rajdhani';
-  font-size: 2.4rem;
+  font-size: 2rem;
   letter-spacing: 5px;
   text-decoration: none;
 
