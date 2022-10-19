@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import PagePositioner from '../../components/PagePositioner';
-import PreviewAbout from '../../components/Preview/PreviewAbout';
 import { media } from '../../lib/StyleUtil';
 
 const About = ({ children }) => {
@@ -37,6 +36,8 @@ const PreviewBox = styled.div`
     width: 90%;
     height: 300px;
     flex-direction: column;
+    background-color: black;
+    overflow: auto;
   `}
 `;
 

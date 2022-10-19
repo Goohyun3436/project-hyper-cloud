@@ -47,6 +47,7 @@ const TemaVideoBox = styled.div`
       flex-direction: column;
       justify-content: center;
       width: 30%;
+      min-width: 150px;
       margin-right: 20px;
       background-color: #b03333;
 

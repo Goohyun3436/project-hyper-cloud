@@ -44,6 +44,7 @@ const TeamInfoBox = styled.div`
       display: flex;
       flex-direction: column;
       width: 30%;
+      min-width: 200px;
       border: 1px solid green;
       border-top-right-radius: 20px;
       padding: 1rem;

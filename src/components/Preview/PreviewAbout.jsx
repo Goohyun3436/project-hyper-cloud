@@ -5,6 +5,7 @@ import MainTitle from './components/MainTitle';
 import TeamVideo from './components/about/TeamVideo';
 import TeamInfo from './components/about/TeamInfo';
 import History from './components/about/History';
+import { media } from '../../lib/StyleUtil';
 
 const PreviewAbout = () => {
   const [aboutData, setAboutData] = useState();
@@ -49,10 +50,10 @@ export default PreviewAbout;
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
+  min-width: 500px;
   padding: 2rem;
   background-color: black;
   color: white;
-
   .aqua-text {
     color: aqua;
   }
@@ -65,6 +66,16 @@ const Wrapper = styled.div`
     transform: rotate(180deg);
     margin-right: 30px;
   }
+
+  ${media.desktop`
+    transform: scale(0.9)translate(0px, -50px);;
+  `}
+  ${media.tablet`
+    transform: scale(0.8)translate(0px, -150px);;
+  `}
+  ${media.phone`
+    transform: scale(0.6)translate(-150px, -400px);;
+  `}
 `;
 
 const SmallTitle = styled.div`
