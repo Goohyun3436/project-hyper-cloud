@@ -1,18 +1,18 @@
-import axios from 'axios';
-import { useEffect } from 'react';
 import styled from 'styled-components';
+import { useEffect, useState } from 'react';
 import { fetchPreviewData } from '../../lib/api/preview';
-import History from './components/about/History';
-import TeamInfo from './components/about/TeamInfo';
-import TeamVideo from './components/about/TeamVideo';
 import MainTitle from './components/MainTitle';
+import TeamVideo from './components/about/TeamVideo';
+import TeamInfo from './components/about/TeamInfo';
+import History from './components/about/History';
 
 const PreviewAbout = () => {
+  const [aboutData, setAboutData] = useState();
   useEffect(() => {
     (async () => {
       try {
         const { data } = await fetchPreviewData();
-        console.log(data);
+        setAboutData(data[0].about);
       } catch (error) {
         console.log(error);
       }
@@ -20,23 +20,27 @@ const PreviewAbout = () => {
   }, []);
 
   return (
-    <Wrapper>
-      <MainTitle />
-      <TeamVideo>
-        <SmallTitle className='title'>
-          <p className='aqua-text'>TEAM</p>
-          <p className='green-text'>Members</p>
-          <span>하이퍼클라우드의 Team member를 소개합니다.</span>
-        </SmallTitle>
-      </TeamVideo>
-      <TeamInfo />
-      <History>
-        <SmallTitle className='title'>
-          <p className='aqua-text'>Award</p>
-          <p className='green-text'>History</p>
-        </SmallTitle>
-      </History>
-    </Wrapper>
+    <>
+      {aboutData && (
+        <Wrapper>
+          <MainTitle mainTitle={aboutData.mainTitle} />
+          <TeamVideo teamVideo={aboutData.teamVideo}>
+            <SmallTitle className='title'>
+              <p className='aqua-text'>{aboutData.teamVideo.subTitle.aqua}</p>
+              <p className='green-text'>{aboutData.teamVideo.subTitle.green}</p>
+              <span>{aboutData.teamVideo.subTitle.content}</span>
+            </SmallTitle>
+          </TeamVideo>
+          <TeamInfo teamInfo={aboutData.teamInfo} />
+          <History history={aboutData.history}>
+            <SmallTitle className='title'>
+              <p className='aqua-text'>{aboutData.history.subTitle.aqua}</p>
+              <p className='green-text'>{aboutData.history.subTitle.green}</p>
+            </SmallTitle>
+          </History>
+        </Wrapper>
+      )}
+    </>
   );
 };
 

@@ -1,18 +1,23 @@
 import styled from 'styled-components';
 
-const History = ({ children }) => {
+const History = ({ history, children }) => {
   return (
     <HistoryBox>
       {children}
       <div className='history-list'>
-        <div className='history-card'>
-          <span>2022(4)</span>
-          <div>+</div>
-        </div>
-        <div className='history-card'>
-          <span>2022(4)</span>
-          <div>+</div>
-        </div>
+        {history.historyList
+          .slice(0)
+          .reverse()
+          .map(historyInfo => {
+            return (
+              <div className='history-card' key={historyInfo.id + 1}>
+                <span>
+                  {historyInfo.year} ({historyInfo.id + 1})
+                </span>
+                <div>+</div>
+              </div>
+            );
+          })}
       </div>
     </HistoryBox>
   );

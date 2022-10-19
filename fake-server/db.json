@@ -47,23 +47,25 @@
             "content": "하이퍼클라우드의 Team member를 소개합니다."
           },
           "rotateText": ["Let's make it", "together"],
-          "videoCard": [
+          "videoList": [
             {
               "id": 0,
-              "videoUrl": "",
+              "videoUrl": "videoUrl1",
               "memberName": ["C.E.O", "Ralph"]
             },
             {
               "id": 1,
-              "videoUrl": "",
+              "videoUrl": "videoUrl2",
               "memberName": ["C.E.O 2", "Ralph 2"]
             }
           ]
         },
-        "teamInfo": {
-          "developement": {
+        "teamInfo": [
+          {
+            "id": 0,
+            "teamName": "developement",
             "rotateText": "Developement",
-            "infoCard": [
+            "infoList": [
               {
                 "teamName": "서비스 개발팀",
                 "englishTeamName": "Service R&D Team",
@@ -76,7 +78,9 @@
               }
             ]
           },
-          "businessPlan": {
+          {
+            "id": 1,
+            "teamName": "businessPlan",
             "rotateText": "BusinessPlan",
             "infoList": [
               {
@@ -85,13 +89,13 @@
                 "affiliatedTeam": ["Project Manage", "Market Research"]
               },
               {
-                "teamName": "사업팁",
+                "teamName": "사업팀",
                 "englishTeamName": "Business Develop",
                 "affiliatedTeam": ["Project Operating", "New Business modeling"]
               }
             ]
           }
-        },
+        ],
         "history": {
           "subTitle": {
             "aqua": "Award",
@@ -100,7 +104,7 @@
           "historyList": [
             {
               "id": 0,
-              "year": "2022",
+              "year": "2020",
               "content": {}
             },
             {
@@ -110,7 +114,7 @@
             },
             {
               "id": 2,
-              "year": "2020",
+              "year": "2022",
               "content": {}
             }
           ]

@@ -1,27 +1,31 @@
 import styled from 'styled-components';
 
-const TeamVideo = ({ children }) => {
+const TeamVideo = ({ children, teamVideo }) => {
   return (
     <TemaVideoBox>
       <div className='content-title'>{children}</div>
       <div className='merber-video-wrap'>
         <div className='rotation-text aqua-text'>
-          Let's make it
-          <br />
-          together
+          {teamVideo.rotateText.map(text => {
+            return (
+              <span key={text}>
+                {text}
+                <br />
+              </span>
+            );
+          })}
         </div>
-        <div className='video-card'>
-          <div className='video'>video</div>
-          <p className='merber-name'>
-            <span>C.E.O</span>Ralph
-          </p>
-        </div>
-        <div className='video-card'>
-          <div className='video'>video</div>
-          <p className='merber-name'>
-            <span>C.E.O</span>Ralph
-          </p>
-        </div>
+        {teamVideo.videoList.map(videoCard => {
+          return (
+            <div className='video-card' key={videoCard.memberName[1]}>
+              <div className='video'>{videoCard.videoUrl}</div>
+              <p className='merber-name'>
+                <span>{videoCard.memberName[0]}</span>
+                {videoCard.memberName[1]}
+              </p>
+            </div>
+          );
+        })}
       </div>
     </TemaVideoBox>
   );
