@@ -12,9 +12,8 @@ const Wrapper = styled.div`
   top: 0;
   width: 93%;
   height: auto;
-  /* background-color: white; */
   margin: 0;
-  margin-left: 50px;
+  margin-left: 60px;
 
   ${media.phone`
     width: 100%;
