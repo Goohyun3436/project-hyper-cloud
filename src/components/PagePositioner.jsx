@@ -8,10 +8,17 @@ const PagePositioner = ({ children }) => {
 export default PagePositioner;
 
 const Wrapper = styled.div`
+  position: absolute;
+  top: 0;
+  width: 93%;
+  height: auto;
+  /* background-color: white; */
   margin: 0;
   margin-left: 50px;
 
   ${media.phone`
+    width: 100%;
+    height: 93%;
     margin: 0;
     margin-top: 40px;
   `}

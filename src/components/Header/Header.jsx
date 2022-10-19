@@ -43,7 +43,8 @@ const Header = () => {
 
   useEffect(() => {
     setIsOpenDetailSnb(false);
-    if (location.pathname === '/') setIsContentIconMenu([false, false, false]);
+    if (location.pathname === '/' || location.pathname === '/auth/login')
+      setIsContentIconMenu([false, false, false]);
   }, [location]);
 
   return (
