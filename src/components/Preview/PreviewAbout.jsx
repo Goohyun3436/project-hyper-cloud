@@ -12,6 +12,7 @@ const PreviewAbout = () => {
         <SmallTitle className='title'>
           <p className='aqua-text'>TEAM</p>
           <p className='green-text'>Members</p>
+          <span>하이퍼클라우드의 Team member를 소개합니다.</span>
         </SmallTitle>
       </TeamVideo>
       <TeamInfo />
@@ -41,12 +42,6 @@ const Wrapper = styled.div`
     color: #91ff65;
   }
 
-  .content-title {
-    span {
-      font-size: 0.4rem;
-    }
-  }
-
   .rotation-text {
     writing-mode: vertical-rl;
     transform: rotate(180deg);
@@ -58,5 +53,8 @@ const SmallTitle = styled.div`
   p {
     margin-bottom: 0.3rem;
     font-size: 0.8rem;
+  }
+  span {
+    font-size: 0.4rem;
   }
 `;

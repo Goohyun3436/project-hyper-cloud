@@ -3,10 +3,7 @@ import styled from 'styled-components';
 const TeamVideo = ({ children }) => {
   return (
     <TemaVideoBox>
-      <div className='content-title'>
-        {children}
-        <span>하이퍼클라우드의 Team member를 소개합니다.</span>
-      </div>
+      <div className='content-title'>{children}</div>
       <div className='merber-video-wrap'>
         <div className='rotation-text aqua-text'>
           Let's make it
