@@ -8,8 +8,6 @@ const PagePositioner = ({ children }) => {
 export default PagePositioner;
 
 const Wrapper = styled.div`
-  position: absolute;
-  top: 0;
   width: 93%;
   height: auto;
   margin: 0;
