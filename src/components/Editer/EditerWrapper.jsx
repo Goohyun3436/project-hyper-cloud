@@ -36,7 +36,6 @@ const PreviewBox = styled.div`
     width: 90%;
     height: 300px;
     flex-direction: column;
-    background-color: black;
     overflow: auto;
   `}
 `;
@@ -44,7 +43,7 @@ const PreviewBox = styled.div`
 const EditerBox = styled.div`
   width: 40%;
   height: 540px;
-  background-color: aqua;
+  background-color: white;
   overflow: scroll;
 
   ${media.desktop`
