@@ -1,5 +1,6 @@
-import reset from "styled-reset";
-import { createGlobalStyle } from "styled-components";
+import reset from 'styled-reset';
+import { createGlobalStyle } from 'styled-components';
+import { backgroundPupleColor, deepPupleColor } from './Theme';
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
@@ -16,7 +17,7 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     min-width:375px;
-    background: white;
+    background: ${backgroundPupleColor};
     color : black;
     font-family: 'Noto Sans KR', sans-serif;
   }  
