@@ -1,0 +1,61 @@
+{
+  "menuIcons": {
+    "main": {
+      "src": "https://user-images.githubusercontent.com/94745558/196378784-3ca3e691-6709-433c-81d9-de964b897841.png",
+      "alt": "main-icon"
+    },
+    "content": [
+      {
+        "id": 0,
+        "src": "https://user-images.githubusercontent.com/94745558/196367748-212559cb-9c72-45e5-841f-69110aae2419.png",
+        "clickedSrc": "https://user-images.githubusercontent.com/94745558/196410529-d668639b-8786-4604-802d-63383a287d19.png",
+        "alt": "pages-icon"
+      },
+      {
+        "id": 1,
+        "src": "https://user-images.githubusercontent.com/94745558/196372430-70e214b0-7587-4b15-91e4-89f19a3ede12.png",
+        "clickedSrc": "https://user-images.githubusercontent.com/94745558/196418566-e679f3b0-edcd-4c0e-9182-d399aaebb464.png",
+        "alt": "images-icon"
+      }
+    ],
+    "user": [
+      {
+        "id": 2,
+        "src": "https://user-images.githubusercontent.com/94745558/196370948-ac98439f-27f8-491f-bc05-51bd7a329dbe.png",
+        "clickedSrc": "https://user-images.githubusercontent.com/94745558/196418885-05d24577-cd11-426b-9d73-4f3b277710ad.png",
+        "alt": "setting-icon"
+      }
+    ],
+    "token": {
+      "id": 3,
+      "login": "https://user-images.githubusercontent.com/94745558/196468196-b311988e-6fd0-40b0-bcfb-7bf14cc24fba.png",
+      "logout": "https://user-images.githubusercontent.com/94745558/196470421-72f28e48-c740-4a93-b2cd-2b4d80dba076.png"
+    }
+  },
+  "menuContents": {
+    "content": {
+      "pages": [
+        {
+          "title": "PAGES",
+          "content": [
+            { "subTitle": "ABOUT", "pathName": "/about" },
+            { "subTitle": "XR-BUSINESS", "pathName": "/xr-business" },
+            { "subTitle": "NEWS", "pathName": "/news" }
+          ]
+        }
+      ],
+      "images": []
+    },
+    "user": {
+      "setting": [
+        {
+          "title": "ADMINISTRATION",
+          "content": [
+            { "subTitle": "Roles", "pathName": "/setting/roles" },
+            { "subTitle": "Users", "pathName": "/setting/users" }
+          ]
+        }
+      ]
+    }
+  }
+}
