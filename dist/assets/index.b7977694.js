@@ -781,6 +781,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     height: 300px;
     flex-direction: column;
     overflow: auto;
+    background-color: black;
   `}
 `,XN=ye.div`
   width: 40%;
