@@ -1,34 +1,10 @@
 {
   "users": [
     {
-      "email": "rngus3436@naver.com",
-      "password": "$2a$10$KSnlIvXJDGQ5MSzGBZoA7OJsH/lkBen.IsP3hJAN2Kuk9LcRSouGC",
-      "userid": "3436rngus",
-      "id": 1
-    },
-    {
-      "email": "3436rngus@naver.com",
-      "password": "$2a$10$l3oX2cirkVmR06npWBY5eu8ZFTcYJmK8zmP8LDoF5dPD4XlGE86CS",
-      "userid": "3436rngus",
-      "id": 2
-    },
-    {
-      "email": "3436rngus@naver.comm",
-      "password": "$2a$10$XeqwtP7uN01pmkpI1o5CZujxs6bCdysvxf0wziwUmvHToQ/G7/vWO",
-      "userid": "dddd",
-      "id": 3
-    },
-    {
-      "email": "3436rngus@naver.commm",
-      "password": "$2a$10$Ck9Oz6h95iEkIS5fIB536.E0WiON1uQKG5lRCJygCHKSo6GRtiuTO",
-      "userid": "sdfsdfsd",
-      "id": 4
-    },
-    {
-      "email": "3436rngus@naver.commmdfdfs",
-      "password": "$2a$10$t.3PoxccaY37JSu9ElrkBemUzjEAJT2aYzeC2mOn0YWDC8ihTX1KW",
-      "userid": "ddddd",
-      "id": 5
+      "email": "admin@naver.com",
+      "password": "$2a$10$H2X9l82xWunI/ylLGpLX3eWLOIcj.YPyS4bN9OJbJL5AZqtbxMk26",
+      "userid": "admin123",
+      "id": 0
     }
   ],
   "posts": [
@@ -121,7 +97,13 @@
         }
       }
     },
-    { "id": 1, "xr-business": {} },
-    { "id": 2, "news": {} }
+    {
+      "id": 1,
+      "xr-business": {}
+    },
+    {
+      "id": 2,
+      "news": {}
+    }
   ]
 }

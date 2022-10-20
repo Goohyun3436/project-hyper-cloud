@@ -37,6 +37,7 @@ const PreviewBox = styled.div`
     height: 300px;
     flex-direction: column;
     overflow: auto;
+    background-color: black;
   `}
 `;
 
